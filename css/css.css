@@ -1,0 +1,140 @@
+/**/
+@charset "utf-8";
+
+* { padding: 0; margin: 0;   -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,  
+form,fieldset,input,textarea,p,blockquote,th,td {
+	padding: 0;
+	margin: 0;
+	border-collapse: 0;
+	
+}  
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 1;
+}  
+fieldset,img {  
+border: 0;  
+vertical-align:middle;
+}  
+ 
+ol,ul {  
+list-style: none;
+margin:0px;
+padding:0px;
+}  
+caption,th {  
+text-align: left;  
+}  
+h1,h2,h3,h4,h5,h6 {  
+font-size: 100%;  
+font-weight:normal;
+}
+a{ color:#999999;text-decoration:none; border:none;}
+a:hover{ cursor:pointer;outline:none}
+body{ color:#999999;  background:#fffcf4;position:relative;}
+input,button,select,textarea{outline:none;background:none;border:none;}  
+
+textarea{resize:none} 
+.clearfix:after {
+clear: both;
+content: '.';
+display: block;
+height: 0px;
+overflow: hidden;
+visibility: hidden;
+}
+
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body, h1, p, table, tr, td {
+    margin: 0;
+    padding: 0;
+}
+header {padding: 2.5rem 0;}
+img {max-width:100%;}
+body,html {position:relative;max-width:100%;-webkit-user-select:none;-moz-user-select:none;/*禁止双击页面选中文本*/
+text-align: center;height: 100%; font-size:72%;/* 10/16x100%= 62.5%  默认1em=16px 这个是将转换为    em=rem  but:rem不兼容ie8 如需 直接在加一个 px即可 ^ ^ 对了  浏览器不支持12px以下的字体   所以 最小   1rem=12px */
+}
+
+
+
+/*--------------*/
+#header {width:100%;height:5rem;position:fixed;top:0;left: 0;overflow:hidden;z-index: 999;display: block;background: #000; text-align: center;}
+.button-bas {width:100px;cursor:pointer;height:100%; border-bottom:1px solid #ccc;-webkit-font-smoothing:antialiased;position:relative;left: 0;top: 0;color:#fff; text-align: left;float: left;}
+.button-bas div:nth-child(1){background: #000; transform: rotateX(90deg);-moz-transform: rotateX(90deg);-webkit-transform:rotateX(90deg); -ms-transform: rotateX(90deg);}
+.button-bas div:nth-child(2){background: #fff;color:#000; transform: rotateX(0deg);-moz-transform: rotateX(0deg);-webkit-transform:rotateX(0deg);-ms-transform: rotateX(90deg);}
+.button-bas div {width:100%;height:100%; line-height:2.5rem;position:absolute;top: 0;left: 0; padding: 1rem ;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transform-origin: 50% 50% -2.5rem;
+    -webkit-transform-origin: 50% 50% -2.5rem;
+    -moz-transform-origin: 50% 50% -2.5rem;
+    -ms-transform-origin: 50% 50% -2.5rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    }
+.button-bas div:nth-child(1) h1 {color:#fff;}
+.button-bas div:nth-child(1) .block {background:red;}
+.button-bas div:nth-child(2) h1 {color:#c7c7c7;}
+.button-bas div:nth-child(2) .block {background:#c7c7c7;}
+.button-bas div h1 {width:100%;height:auto;float:left;font-weight: 600;}
+.button-bas div .block {width:16px;height:.2rem;float: left; margin-left:.3rem;}
+
+.button-bas div:nth-child(2)::before{width:.1rem;clear: both;content: '.';position:absolute;right: 0;top: 0;height: 100%;background:#CCCCCC;}
+
+#loading {width: 100%;height:100%;position:fixed;top: 0;left: 0; background: #000;z-index: 9999;overflow: hidden;}
+#loading_img {position:relative;width: 100%;height:176px;background: url(../img/loader.gif) no-repeat center center;-webkit-transform:scale(1);   -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;}
+#loading_img.sever {-webkit-transform:scale(3);}
+.pulse {
+	-webkit-animation: pulse 0.9s 0s infinite;
+	animation-name: pulse 0.9s 0s infinite;
+	-ms-transform:pulse 0.9s 0s infinite;
+	
+}
+.pulse2 {
+	-webkit-animation: pulse 0.9s 0s infinite;
+	animation-name: pulse 0.9s 0s infinite;
+	-ms-transform:pulse 0.9s 0s infinite;
+	}
+
+.translateX {
+	-webkit-animation: translateX ease-in 2s forwards;
+	animation-name: translateX ease-in 2s forwards;
+		-ms-transform:translateX ease-in 2s forwards;
+}
+.container {position:relative;max-width:93.3rem; text-align: center;margin: 0 auto;height: auto;}
+.magin30 {margin-top: 30px;}
+.now {position:relative;}
+#lunbo {width:100%;height:50rem;float: left;overflow: hidden;position:relative;}
+#lunbo ul {list-style: none;width: 100%;height: 100%;position:absolute;overflow: hidden;}
+#lunbo ul li {width: 100%;height:100%;position:relative;float: left;}
+#frist {width:100%;height:3rem;position:absolute;bottom:10px;left: 0; }
+#frist ul{list-style: none;text-align: center;width: 100%;height:100%;}
+#frist ul li {width:1.5rem;height:1.5rem;display: inline-block;*display: inline;zoom: 1; border-radius:100% ; background: gold;overflow: hidden; margin: 0 1.5rem;}
+#frist ul li.on {background: red;} 
+.but {width:3.5rem;height:3.5rem;position:absolute;}
+.but.btn1 {left: 10%;top:50%;margin-top:-1.75rem; background: #000;}
+.but.btn2 {right: 10%;top:50%;margin-top:-1.75rem; background: #000;}
+.lod {overflow: hidden;}
+

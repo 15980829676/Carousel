@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<link rel="stylesheet" href="css/flex.css" />
+		<link rel="stylesheet" href="css/css.css" />
+	
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+	</head>
+	<body>
+	<header>
+		
+		<div id="header">
+			<div class="button-bas">
+				<div><h1>Work</h1><span class="block"></span></div>
+				<div><h1>Work</h1><span class="block"></span></div>
+			</div>
+			<div class="button-bas" >
+				<div><h1>Work</h1><span class="block"></span></div>
+				<div><h1>Work</h1><span class="block"></span></div>
+			</div>
+			<div class="button-bas">
+				<div><h1>Work</h1><span class="block"></span></div>
+				<div><h1>Work</h1><span class="block"></span></div>
+			</div>
+			<div class="button-bas">
+				<div><h1>Work</h1><span class="block"></span></div>
+				<div><h1>Work</h1><span class="block"></span></div>
+			</div>
+			<div class="button-bas" >
+				<div><h1>Work</h1><span class="block"></span></div>
+				<div><h1>Work</h1><span class="block"></span></div>
+			</div>
+		
+		</div>
+	</header>
+		<div class="container">
+				<div class="now clearfix">
+				<div id="lunbo">
+					<ul>
+						<li style="background: url(img/firefox-big.jpg) no-repeat center; background-size:cover ;">1</li>
+						<li style="background: url(img/opera-big.jpg) no-repeat center; background-size:cover ;">2</li>
+						<li style="background: url(img/firefox-big.jpg) no-repeat center; background-size:cover ;">3</li>
+					</ul>
+				</div>
+				<div id="frist">
+					<ul>
+						<li class="on"></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<span class="but btn1"></span>
+				<span class="but btn2"></span>
+			</div>
+		</div>
+		<script>
+			var $header = $('#header').width();
+			var $button_bas=$('.button-bas').length;
+	
+		   	$('.button-bas').css({
+			'width':$(document).width()/$button_bas+'px',
+			})
+		   	
+		    $(window).resize(function(){
+		    $('.button-bas').css({
+				'width':$(document).width()/$button_bas+'px',
+			})
+		    })
+			$('.button-bas').on({
+			mouseenter:function(){
+		
+			    $(this).children('div:nth-child(1)').css({
+			    	'webkitTransform':'rotateX(0deg)',	
+			    })
+			     $(this).children('div:nth-child(2)').css({
+			    	'webkitTransform':'rotateX(-90deg)',	
+			    })
+			},
+			mouseleave:function(){
+				 $(this).children('div:nth-child(1)').css({
+			    	'webkitTransform':'rotateX(90deg)',	
+			    })
+			     $(this).children('div:nth-child(2)').css({
+			    	'webkitTransform':'rotateX(0deg)',	
+			    }) 
+				
+			}	
+			})
+			/*侧滑轮播*/
+			var time;
+			var index=0;
+			var length_l=$('#lunbo ul li').length;
+			var lun_ul=parseInt($('#lunbo ul li').width());
+			//console.log(lun_ul);
+			var li_width=length_l*lun_ul;
+			$('#lunbo ul').css({
+				'width':li_width+'px',
+			})
+			$('#lunbo ul li').css({
+				'width':lun_ul+'px',
+			})
+		
+			$('#frist ul li').mouseover(function(){
+				index=$("#frist ul li").index(this);
+				showIn(index);
+			})
+		
+		 
+		   
+		  $('.btn1').on('click',function(){
+		  	   index--;
+	          if(index<0){
+	          	 index=length_l-1;
+	          }
+	         // console.log(index);
+	          showIn(index);
+	          time2();
+		  })
+		  $('.btn2').on('click',function(){
+		  	
+		  	 index++;
+		   	if(index===length_l){
+		   		index=0;
+		   	}
+	        
+	         // console.log(index);
+	          showIn(index);
+	          time2();
+		  })
+		
+			function showIn(index){
+				$('#lunbo ul').stop(true,false).animate({
+					'left':-index*lun_ul+'px',
+				},1000) 
+			$('#frist ul li').eq(index).addClass('on').siblings().removeClass('on');
+				
+			}
+		
+			function time2(){
+			clearInterval(time);
+			time=setInterval(function(){
+		   	showIn(index);
+		   	index++;
+		   	if(index===length_l){
+		   		index=0;
+		   	}
+		   	 },3000)
+				
+			}
+			 time2();
+			
+		</script>
+	</body>
+</html>
